@@ -21,11 +21,7 @@ export default function App({ Component, pageProps }) {
 			 }
 		  `}
 		</style>
-		<div className="bg-background flex flex-col grow items-center">
-			<div className="w-content text-background-header max-w-[100%]">
 				<Component {...pageProps} />
-			</div>
-		</div>
 		</>
 	);
 }

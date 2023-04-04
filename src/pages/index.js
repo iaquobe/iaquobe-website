@@ -1,19 +1,22 @@
-import path from 'path';
-import fs from 'fs';
+import Link from 'next/link';
+import { Content } from '@/components/content';
+import { getPostList } from '@/lib/posts';
 
 
 export default function Home({slugs}) {
 	return (<>
-			hello:
-			{slugs.map((name) => )}
+		<div className="h-100 bg-[url('/images/anime.gif')]">
+			<Content/>
+			{slugs.map((name) => (
+					<Link href={'/projects/' + name}>
+						{name}
+					</Link>
+				))}
+		</div>
 		</>)
 }
 
 
 export const getStaticProps = () => {
-	const folder = path.join(process.cwd(), '_projects')
-	const files = fs.readdirSync(folder)
-	const markdown = files.filter((file) => file.endsWith(".md"))
-	const slugs = markdown.map((file) => file.replace(".md", ""))
-	return {props: {slugs: slugs}}
+	return getPostList()
 }
