@@ -1,4 +1,5 @@
 import "tailwindcss/tailwind.css";
+import '@/pages/preset.css';
 
 export default function App({ Component, pageProps }) {
 	return (
@@ -21,7 +22,9 @@ export default function App({ Component, pageProps }) {
 			 }
 		  `}
 		</style>
+			<div className="flex justify-center h-full bg-cover bg-[url('/images/anime.gif')]">
 				<Component {...pageProps} />
+			</div>
 		</>
 	);
 }

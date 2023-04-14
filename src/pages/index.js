@@ -1,22 +1,34 @@
-import Link from 'next/link';
 import { Content } from '@/components/content';
-import { getPostList } from '@/lib/posts';
+import { getPostList, getPostData } from '@/lib/posts';
+import Markdown from "markdown-to-jsx";
 
+export async function getStaticProps() {
+	const post_slugs = getPostList()
+	const contents = post_slugs.props.slugs.map(slug => {
+		return getPostData(slug)
+	})
 
-export default function Home({slugs}) {
-	return (<>
-		<div className="h-100 bg-[url('/images/anime.gif')]">
-			<Content/>
-			{slugs.map((name) => (
-					<Link href={'/projects/' + name}>
-						{name}
-					</Link>
-				))}
-		</div>
-		</>)
+	return {
+		props: {
+			contents: contents
+		}
+	}
 }
 
 
-export const getStaticProps = () => {
-	return getPostList()
+export default function Home({ contents }) {
+	function getContent() {
+		return contents.map(content => (
+				<Markdown>
+					{content}
+				</Markdown>
+		))
+	}
+
+	return (
+		<>
+			<div className="w-[50%] min-w-[800px] bg-powderblue text-purple">
+				<Content content={getContent()}/>
+			</div>
+		</>)
 }
