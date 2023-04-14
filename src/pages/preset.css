@@ -2,16 +2,35 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "PressStart2Play";
-  src: url('/fonts/PressStart2P-Regular.ttf');
-  font-weight: normal;
-  font-style: normal;
-}
 
 @layer base {
-  h1{
-    @apply text-center text-xl font-bold;
-  }
+	@font-face {
+		font-family: "comic";
+		src: url('/fonts/comic-helvetic/ComicHelvetic_Light.otf');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	@font-face {
+		font-family: "p2p";
+		src: url('/fonts/PressStart2P-Regular.ttf');
+		font-weight: normal;
+		font-style: normal;
+	}
+
+  	h2,h1{
+    	@apply text-center text-3xl p-8 font-bold font-['p2p'];
+  	}
+
+  	h2 {
+		@apply text-base p-4
+  	}
+
+	a {
+		@apply text-magenta
+	}
+	 p {
+		@apply font-bold text-sm
+	 }
 }  
 

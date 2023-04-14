@@ -28,7 +28,7 @@ export default function Home({ contents }) {
 	return (
 		<>
 			<div className="w-[50%] min-w-[800px] bg-powderblue text-purple">
-				<Content content={getContent()}/>
+				<Content title='$ls ~/projects' content={getContent()} banner='/images/banners/hollow_knight.gif'/>
 			</div>
 		</>)
 }
