@@ -15,6 +15,11 @@ module.exports = {
 			'powderblue': "#B0E0E6",
 			'purple': '#800080',
 			'magenta': '#d946ef',
+			'lavendar': '#C593EB',
+			'indigo': '#4B0082',
+			'periwinkle': '#BBBAE9',
+			'windows-bg': '#c0c0c0',
+			'windows-fg': '#222222',
 		}
 	},
 	plugins: [],

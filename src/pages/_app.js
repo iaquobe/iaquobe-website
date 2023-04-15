@@ -1,5 +1,6 @@
 import "tailwindcss/tailwind.css";
 import '@/pages/preset.css';
+import { Header } from '@/components/header';
 
 export default function App({ Component, pageProps }) {
 	return (
@@ -22,7 +23,9 @@ export default function App({ Component, pageProps }) {
 			 }
 		  `}
 		</style>
-			<div className="flex justify-center h-full bg-cover bg-[url('/images/anime.gif')]">
+			<Header/>
+			<img src='/images/anime.gif' alt="background" className="bg-img" />
+			<div className="py-16 flex justify-center h-full">
 				<Component {...pageProps} />
 			</div>
 		</>
