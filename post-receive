@@ -11,7 +11,8 @@ do
 		# deploy to our target directory.
 		git --work-tree="$TARGET" checkout -f $BRANCH
 		cd $TARGET
-		exec update-website.sh
+		ls
+		exec ./update-website.sh
 	else
 		echo "$BRANCH Not master branch. Skipping."
 	fi
