@@ -1,6 +1,6 @@
 #!/bin/bash
 
-GIT_DIR="/home/iaquobe/git/updated-website.git"
+DIR="/home/iaquobe/git/updated-website.git"
 
 TARGET="/home/iaquobe/updated-website"
 while read oldrev newrev ref
@@ -9,10 +9,11 @@ do
 	pwd
 	echo $oldrev $newrev $ref
 	BRANCH=$(git rev-parse --symbolic --abbrev-ref $ref)
+	echo $BRANCH
 	if [[ $BRANCH == "main" ]]; then
 		echo "Push received! Deploying branch: ${BRANCH}..."
 		# deploy to our target directory.
-		sudo git --work-tree=$TARGET --git-dir=$GIT_DIR checkout -f $BRANCH
+		sudo git --work-tree=$TARGET --git-dir=$DIR checkout -f $BRANCH
 		cd $TARGET
 		exec update-website.sh
 	else
