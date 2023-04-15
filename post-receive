@@ -5,6 +5,7 @@ GIT_DIR="/home/iaquobe/git/updated-website.git"
 TARGET="/home/iaquobe/updated-website"
 while read oldrev newrev ref
 do
+	whoami
 	pwd
 	echo $oldrev $newrev $ref
 	BRANCH=$(git rev-parse --symbolic --abbrev-ref $ref)
