@@ -9,7 +9,7 @@ do
 	if [[ $BRANCH == "main" ]]; then
 		echo "Push received! Deploying branch: ${BRANCH}..."
 		# deploy to our target directory.
-		git --work-tree="$TARGET" --git-dir="$DIR" checkout -f $BRANCH
+		git --work-tree="$TARGET" checkout -f $BRANCH
 		cd $TARGET
 		exec update-website.sh
 	else
