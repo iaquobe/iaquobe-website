@@ -2,9 +2,10 @@
 
 GIT_DIR="~/git/updated-website.git"
 
-TARGET="~/updated/updated-website"
+TARGET="~/updated-website"
 while read oldrev newrev ref
 do
+	pwd
 	echo $oldrev $newrev $ref
 	BRANCH=$(git rev-parse --symbolic --abbrev-ref $ref)
 	if [[ $BRANCH == "main" ]]; then
