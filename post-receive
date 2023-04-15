@@ -5,14 +5,15 @@ GIT_DIR="/home/iaquobe/git/updated-website.git"
 TARGET="~/updated/updated-website"
 while read oldrev newrev ref
 do
-    BRANCH=$(git rev-parse --symbolic --abbrev-ref $ref)
-    if [[ $BRANCH == "main" ]]; then
-        echo "Push received! Deploying branch: ${BRANCH}..."
-        # deploy to our target directory.
-        sudo git --work-tree=$TARGET --git-dir=$GIT_DIR checkout -f $BRANCH
-		  cd $TARGET
-		  exec update-website.sh
-    else
-        echo "Not master branch. Skipping."
-    fi
+	echo $oldrev $newrev $ref
+	BRANCH=$(git rev-parse --symbolic --abbrev-ref $ref)
+	if [[ $BRANCH == "main" ]]; then
+		echo "Push received! Deploying branch: ${BRANCH}..."
+		# deploy to our target directory.
+		sudo git --work-tree=$TARGET --git-dir=$GIT_DIR checkout -f $BRANCH
+		cd $TARGET
+		exec update-website.sh
+	else
+		echo "$BRANCH Not master branch. Skipping."
+	fi
 done
