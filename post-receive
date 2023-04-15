@@ -1,8 +1,8 @@
 #!/bin/bash
 
-GIT_DIR="~/git/updated-website.git"
+GIT_DIR="/home/iaquobe/git/updated-website.git"
 
-TARGET="~/updated-website"
+TARGET="/home/iaquobe/updated-website"
 while read oldrev newrev ref
 do
 	pwd
