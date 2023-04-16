@@ -27,7 +27,7 @@ export default function Home({ contents }) {
 
 	return (
 		<>
-			<div className="w-[50%] min-w-[800px] bg-powderblue text-purple">
+			<div className="w-[50%] min-w-[700px] bg-powderblue text-purple">
 				<Content title='$cat README.md' content={getContent()} banner='/images/banners/shika.gif'/>
 			</div>
 		</>)
