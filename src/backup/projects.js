@@ -3,9 +3,9 @@ import { getPostList, getPostData } from '@/lib/posts';
 import Markdown from "markdown-to-jsx";
 
 export async function getStaticProps() {
-	const post_slugs = getPostList('about')
+	const post_slugs = getPostList()
 	const contents = post_slugs.props.slugs.map(slug => {
-		return getPostData(slug, 'about')
+		return getPostData(slug)
 	})
 
 	return {
@@ -27,8 +27,6 @@ export default function Home({ contents }) {
 
 	return (
 		<>
-			<div className="w-[50%] min-w-[700px] bg-powderblue text-purple">
-				<Content title='$whoami' content={getContent()} banner='/images/banners/gaping_dragon.gif'/>
-			</div>
+			<Content title='$ls ~/projects' content={getContent()} banner='/images/banners/hollow_knight.gif'/>
 		</>)
 }
