@@ -3,7 +3,13 @@ import { getPostList, getPostData } from '@/lib/posts';
 import Markdown from "markdown-to-jsx";
 
 export async function getStaticProps(context) {
+	const banners = {
+		'about'       : 'gaping_dragon.gif',
+		'projects'    : 'hollow_knight.gif',
+		'dot-files'   : 'ocarina-of-time.gif',
+	}
 	const { site } = context.params; 
+	
 
 	const post_slugs = getPostList(site)
 	const contents = post_slugs.props.slugs.map(slug => {
@@ -12,7 +18,8 @@ export async function getStaticProps(context) {
 
 	return {
 		props: {
-			contents: contents
+			contents: contents,
+			banner: banners[site],
 		}
 	}
 }
@@ -20,7 +27,6 @@ export async function getStaticProps(context) {
 export async function getStaticPaths(){
 	return {
 		paths: [
-			{ params: { site: ''}},
 			{ params: { site: 'about'}},
 			{ params: { site: 'dot-files'}},
 			{ params: { site: 'projects'}},
@@ -30,7 +36,7 @@ export async function getStaticPaths(){
 }
 
 
-export default function Home({ contents }) {
+export default function Home({ contents, banner }) {
 	function getContent() {
 		return contents.map(content => (
 				<Markdown>
@@ -41,6 +47,6 @@ export default function Home({ contents }) {
 
 	return (
 		<>
-			<Content title='$whoami' content={getContent()} banner='/images/banners/gaping_dragon.gif'/>
+			<Content title='$whoami' content={getContent()} banner={'/images/banners/' + banner}/>
 		</>)
 }

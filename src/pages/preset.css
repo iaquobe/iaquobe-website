@@ -80,6 +80,6 @@
 	}
 
 	p {
-		@apply font-bold text-sm pt-1; 
+		@apply pt-3; 
 	}
 }  

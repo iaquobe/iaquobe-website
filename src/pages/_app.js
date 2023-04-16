@@ -26,7 +26,7 @@ export default function App({ Component, pageProps }) {
 			<Header/>
 			<img src='/images/anime.gif' alt="background" className="bg-img" />
 			<div className="py-16 flex justify-center w-full h-full">
-				<div className="md:w-[80%] w-full bg-powerderblue color-purple">
+				<div className="md:w-[80%] w-full bg-powerderblue color-purple font-mono text-sm">
 					<Component {...pageProps} />
 				</div>
 			</div>
