@@ -50,7 +50,7 @@ export default function Home({ contents, banner }) {
 		console.log(boardOrientation)
     return <div>
       <div>
-				<ChessAnalysisBoard pgnString={children} config={{boardConfig: {ChessBoardProps: {boardOrientation, customDarkSquareStyle: {backgroundColor: '#C593EB'}, customLightSquareStyle: {backgroundColor: '#BBBAE9'}}}}}/>
+				<ChessAnalysisBoard pgnString={children} config={{boardConfig: {ChessBoardProps: {boardOrientation, customDarkSquareStyle: {backgroundColor: '#C593EB'}, customLightSquareStyle: {backgroundColor: '#F5FFFA'}}}}}/>
       </div>
     </div>
   }
