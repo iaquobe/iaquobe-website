@@ -1,3 +1,0 @@
-## Breath of the Wild
-
-
